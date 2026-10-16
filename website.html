@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STRICK X144Hz | PC & BlueStacks Free Fire Tweaks Hub</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Orbitron for Sci-Fi Titles & Inter for sharp body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#00f0ff',
+                            electricBlue: '#0077ff',
+                            deepBlue: '#001026',
+                            glow: 'rgba(0, 240, 255, 0.5)',
+                            bgDark: '#02040a',
+                            cardBg: 'rgba(4, 8, 18, 0.92)',
+                            cardBorder: 'rgba(0, 240, 255, 0.35)'
+                        }
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 3s infinite ease-in-out',
+                        'float': 'float 4s infinite ease-in-out',
+                        'aura-spin': 'auraSpin 14s linear infinite',
+                        'scan-line': 'scanLine 4s linear infinite',
+                        'cyber-grid': 'cyberGrid 20s linear infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.5', transform: 'scale(1)' },
+                            '50%': { opacity: '0.9', transform: 'scale(1.04)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' }
+                        },
+                        auraSpin: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' }
+                        },
+                        scanLine: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(1000%)' }
+                        },
+                        cyberGrid: {
+                            '0%': { backgroundPosition: '0 0' },
+                            '100%': { backgroundPosition: '50px 50px' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #02040a;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- CYBER ANIMATED ULTRA-DARK BACKGROUND GRID --- */
+        .cyber-grid-bg {
+            background-image: 
+                linear-gradient(to right, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: cyberGrid 25s linear infinite;
+        }
+
+        .bg-glow-radial {
+            background: radial-gradient(circle at 75% 30%, rgba(0, 240, 255, 0.12) 0%, rgba(0, 85, 255, 0.04) 35%, rgba(2, 4, 10, 1) 70%);
+        }
+
+        /* --- LASER SCANLINE ANIMATION --- */
+        .scanline {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00f0ff, transparent);
+            opacity: 0.7;
+            animation: scanLine 6s linear infinite;
+            pointer-events: none;
+        }
+
+        /* --- NEON BORDER & GLOW EFFECTS --- */
+        .neon-border {
+            border: 1px solid rgba(0, 240, 255, 0.35);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.15), inset 0 0 10px rgba(0, 240, 255, 0.05);
+            transition: all 0.35s ease;
+        }
+
+        .neon-border:hover {
+            border-color: rgba(0, 240, 255, 0.85);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.4), inset 0 0 15px rgba(0, 240, 255, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .neon-button {
+            background: linear-gradient(135deg, #00f0ff 0%, #0066ff 100%);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neon-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(60deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: rotate(30deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .neon-button:hover::after {
+            left: 100%;
+            opacity: 1;
+        }
+
+        .neon-button:hover {
+            box-shadow: 0 0 35px rgba(0, 240, 255, 0.9);
+            transform: translateY(-2px);
+        }
+
+        .text-glow-blue {
+            text-shadow: 0 0 18px rgba(0, 240, 255, 0.85);
+        }
+
+        .glass-card {
+            background: rgba(4, 8, 18, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .character-aura {
+            position: relative;
+        }
+
+        .character-aura::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,240,255,0.45) 0%, rgba(0,119,255,0) 70%);
+            z-index: -1;
+            animation: pulseGlow 3s infinite ease-in-out;
+        }
+
+        .text-sharp-visible {
+            color: #ffffff !important;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+        }
+
+        .text-muted-visible {
+            color: #cbd5e1 !important;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 1);
+        }
+    </style>
+</head>
+<body class="bg-glow-radial cyber-grid-bg min-h-screen flex flex-col justify-between selection:bg-brand-blue selection:text-black">
+
+    <!-- LASER SCANLINE ANIMATION OVERLAY -->
+    <div class="scanline"></div>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between relative z-50">
+        <div class="flex items-center space-x-3">
+            <a href="#" class="flex items-center space-x-2">
+                <span class="font-orbitron text-2xl sm:text-3xl font-black tracking-wider text-white">
+                    STRICK <span class="text-brand-blue text-glow-blue">X144Hz</span>
+                </span>
+            </a>
+            <span class="px-3 py-1 text-[10px] sm:text-xs font-black uppercase tracking-widest text-black bg-brand-blue rounded-full shadow-[0_0_15px_rgba(0,240,255,0.7)] font-orbitron">
+                PC &amp; BLUESTACKS ONLY
+            </span>
+        </div>
+
+        <nav class="hidden md:flex items-center space-x-8 font-extrabold text-sm tracking-wider text-gray-200 font-orbitron">
+            <a href="#home" class="text-brand-blue border-b-2 border-brand-blue pb-1 transition-all">HOME</a>
+            <a href="#free-downloads" class="hover:text-brand-blue transition-colors">FREE DOWNLOADS</a>
+            <a href="#plans" class="hover:text-brand-blue transition-colors">VIP PACKS</a>
+        </nav>
+
+        <div class="hidden md:block">
+            <a href="https://wa.me/" target="_blank" class="neon-button px-6 py-2.5 rounded-full font-black text-xs tracking-wider uppercase text-black font-orbitron inline-block">
+                CONTACT SUPPORT
+            </a>
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden text-gray-200 hover:text-brand-blue focus:outline-none p-2">
+            <i class="fa-solid fa-bars-staggered text-2xl"></i>
+        </button>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-x-0 top-20 bg-brand-bgDark/98 backdrop-blur-2xl border-b border-brand-cardBorder z-40 px-6 py-6 transition-all duration-300">
+        <div class="flex flex-col space-y-4 font-bold tracking-wider text-sm font-orbitron">
+            <a href="#home" class="text-brand-blue">HOME</a>
+            <a href="#free-downloads" class="text-gray-200 hover:text-brand-blue">FREE DOWNLOADS</a>
+            <a href="#plans" class="text-gray-200 hover:text-brand-blue">VIP PACKS</a>
+            <a href="https://wa.me/" target="_blank" class="neon-button text-center py-3 rounded-full font-black text-xs uppercase text-black font-orbitron mt-2">
+                CONTACT SUPPORT
+            </a>
+        </div>
+    </div>
+
+    <!-- ================= MAIN HERO SECTION ================= -->
+    <main id="home" class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16 flex-grow flex items-center relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full">
+            
+            <!-- LEFT COLUMN: TEXT CONTENT & ACTION BUTTONS -->
+            <div class="lg:col-span-7 space-y-6 sm:space-y-8 text-left">
+                
+                <div class="inline-flex items-center space-x-2.5 bg-brand-blue/15 border border-brand-blue/50 px-4 py-1.5 rounded-full text-brand-blue text-xs sm:text-sm font-bold tracking-wider font-orbitron shadow-[0_0_15px_rgba(0,240,255,0.2)]">
+                    <i class="fa-solid fa-microchip text-brand-blue animate-pulse"></i>
+                    <span>HARDWARE &amp; EMULATOR OPTIMIZATION HUB</span>
+                </div>
+
+                <h1 class="font-orbitron text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight leading-none text-white">
+                    STRICK X144Hz <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue via-cyan-300 to-white text-glow-blue">
+                        PC &amp; BLUESTACKS
+                    </span> <br>
+                    PERFORMANCE HUB
+                </h1>
+
+                <!-- Exclusive PC / BlueStacks Platform Badges -->
+                <div class="flex flex-wrap gap-3 items-center pt-1 font-orbitron">
+                    <span class="glass-card neon-border px-4 py-2 rounded-xl text-xs font-black text-brand-blue flex items-center space-x-2">
+                        <i class="fa-solid fa-desktop text-brand-blue"></i>
+                        <span>Windows PC Exclusive</span>
+                    </span>
+                    <span class="glass-card neon-border px-4 py-2 rounded-xl text-xs font-black text-brand-blue flex items-center space-x-2">
+                        <i class="fa-solid fa-gamepad text-brand-blue"></i>
+                        <span>BlueStacks 5 Engine Tuning</span>
+                    </span>
+                </div>
+
+                <p class="text-muted-visible text-base sm:text-lg leading-relaxed max-w-xl font-medium">
+                    Engineered precision tweaks for Free Fire competitive players. Bypasses OS acceleration, optimizes mouse buffer polling, and removes emulator micro-stutters for <strong class="text-brand-blue font-bold">1:1 raw aiming response</strong>.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 font-orbitron">
+                    <a href="#free-downloads" class="neon-button px-8 py-4 rounded-xl font-black text-xs sm:text-sm text-black flex items-center justify-center space-x-3 uppercase tracking-wider">
+                        <i class="fa-solid fa-download text-base"></i>
+                        <span>ACCESS FREE DOWNLOADS</span>
+                    </a>
+                    <a href="#plans" class="glass-card neon-border px-8 py-4 rounded-xl font-black text-xs sm:text-sm text-white hover:text-brand-blue transition-all flex items-center justify-center space-x-3 uppercase tracking-wider">
+                        <i class="fa-solid fa-lock-open text-base text-brand-blue"></i>
+                        <span>VIEW VIP SUITE</span>
+                    </a>
+                </div>
+
+                <div class="pt-4 flex flex-wrap items-center gap-6 sm:gap-10 text-xs font-bold text-gray-300 border-t border-gray-800/80">
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-shield-halved text-brand-blue text-base"></i>
+                        <span class="text-sharp-visible">100% Anti-Cheat Safe</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-bolt text-brand-blue text-base"></i>
+                        <span class="text-sharp-visible">Instant Registry Application</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-sliders text-brand-blue text-base"></i>
+                        <span class="text-sharp-visible">Zero Latency Mouse Buffer</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: HERO CHARACTER GRAPHIC WITH CYBER ANIMATIONS -->
+            <div class="lg:col-span-5 relative flex items-center justify-center mt-8 lg:mt-0">
+                <div class="relative w-80 h-80 sm:w-96 sm:h-96 rounded-full flex items-center justify-center character-aura">
+                    
+                    <!-- Animated Rotating Outer Rings -->
+                    <div class="absolute inset-0 rounded-full border-2 border-brand-blue/70 shadow-[0_0_45px_rgba(0,240,255,0.6)] animate-pulse-glow"></div>
+                    <div class="absolute -inset-3 rounded-full border-2 border-dashed border-brand-blue/40 animate-aura-spin"></div>
+                    <div class="absolute -inset-6 rounded-full border border-dotted border-brand-electricBlue/30 animate-pulse"></div>
+
+                    <!-- Custom GitHub Avatar Image with Cyber Overlay -->
+                    <div class="w-full h-full rounded-full overflow-hidden p-3.5 relative z-10 bg-black">
+                        <img 
+                            src="https://raw.githubusercontent.com/neoisagi895-wq/coustem-pfp/main/Gemini_Generated_Image_xe2kv2xe2kv2xe2k.jpg" 
+                            alt="STRICK X144Hz Cyber Avatar" 
+                            class="w-full h-full object-cover rounded-full filter contrast-125 brightness-105 border-2 border-brand-blue/60 transform hover:scale-105 transition-transform duration-500"
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x400/02040a/00f0ff?text=STRICK+X144Hz';"
+                        >
+                        <!-- Holographic Blue Grid Overlay -->
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-t from-brand-bgDark via-transparent to-brand-blue/25 pointer-events-none"></div>
+                    </div>
+
+                    <!-- Floating Cyber Tech Decorative Pills -->
+                    <div class="absolute -top-3 left-4 glass-card neon-border px-3.5 py-1.5 rounded-lg z-20 text-[11px] font-orbitron font-bold text-brand-blue flex items-center space-x-2 animate-float">
+                        <i class="fa-solid fa-code-branch"></i>
+                        <span>v2.4 REGISTRY ENGINE</span>
+                    </div>
+
+                    <div class="absolute -bottom-3 right-4 glass-card neon-border px-3.5 py-1.5 rounded-lg z-20 text-[11px] font-orbitron font-bold text-brand-blue flex items-center space-x-2 animate-float">
+                        <i class="fa-solid fa-wave-square"></i>
+                        <span>1000Hz POLLING SYNC</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ================= FREE DOWNLOAD TWEAKS SECTION ================= -->
+    <section id="free-downloads" class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-gray-900 relative z-10">
+        <div class="text-center mb-14">
+            <div class="inline-block px-4 py-1 bg-brand-blue/10 border border-brand-blue/30 rounded-full text-brand-blue text-xs font-black uppercase tracking-widest font-orbitron mb-3">
+                COMMUNITY RESOURCE CENTER
+            </div>
+            <h2 class="font-orbitron text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">
+                FREE <span class="text-brand-blue text-glow-blue">FILES &amp; TWEAKS</span>
+            </h2>
+            <p class="text-muted-visible text-sm sm:text-base mt-2 max-w-xl mx-auto font-medium">Download optimized operating systems, Free Fire APKs, and emulator builds.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- FREE DOWNLOAD 1: WINDOWS 10 LTSC ISO -->
+            <div class="glass-card neon-border p-8 rounded-2xl flex flex-col justify-between relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-brand-blue/10 rounded-bl-full pointer-events-none group-hover:bg-brand-blue/20 transition-colors"></div>
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-brand-blue/20 border border-brand-blue/50 flex items-center justify-center text-brand-blue text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-windows"></i>
+                    </div>
+                    <h3 class="font-orbitron text-xl font-extrabold text-white mb-3">Windows 10 LTSC ISO</h3>
+                    <p class="text-muted-visible text-xs sm:text-sm leading-relaxed mb-8 font-medium">
+                        Ultra-stripped Windows 10 OS image optimized for maximum FPS, minimum RAM consumption, and zero background bloatware processes.
+                    </p>
+                </div>
+                <a href="https://www.mediafire.com/file/4l8vxheggkoz4iv/Windows_10_LTSC.iso/file" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 neon-button font-orbitron font-black text-xs uppercase text-black text-center rounded-xl flex items-center justify-center space-x-2 tracking-wider">
+                    <i class="fa-solid fa-download"></i>
+                    <span>DOWNLOAD ISO</span>
+                </a>
+            </div>
+
+            <!-- FREE DOWNLOAD 2: IZAGI X OB55 V7A APK -->
+            <div class="glass-card neon-border p-8 rounded-2xl flex flex-col justify-between relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-brand-blue/10 rounded-bl-full pointer-events-none group-hover:bg-brand-blue/20 transition-colors"></div>
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-brand-blue/20 border border-brand-blue/50 flex items-center justify-center text-brand-blue text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <h3 class="font-orbitron text-xl font-extrabold text-white mb-3">IZAGI X OB55 V7A APK</h3>
+                    <p class="text-muted-visible text-xs sm:text-sm leading-relaxed mb-8 font-medium">
+                        Custom optimized Free Fire OB55 APK build tailored for high frame rate stability and crisp sensitivity response.
+                    </p>
+                </div>
+                <a href="https://www.mediafire.com/file/ege441u9z4n1kkg/IZAGI_X_OB55_V7a.apk/file" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 neon-button font-orbitron font-black text-xs uppercase text-black text-center rounded-xl flex items-center justify-center space-x-2 tracking-wider">
+                    <i class="fa-solid fa-download"></i>
+                    <span>DOWNLOAD APK</span>
+                </a>
+            </div>
+
+            <!-- FREE DOWNLOAD 3: BLUESTACKS 5 LATEST -->
+            <div class="glass-card neon-border p-8 rounded-2xl flex flex-col justify-between relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-brand-blue/10 rounded-bl-full pointer-events-none group-hover:bg-brand-blue/20 transition-colors"></div>
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-brand-blue/20 border border-brand-blue/50 flex items-center justify-center text-brand-blue text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <h3 class="font-orbitron text-xl font-extrabold text-white mb-3">BlueStacks 5 Latest Build</h3>
+                    <p class="text-muted-visible text-xs sm:text-sm leading-relaxed mb-8 font-medium">
+                        Official latest version of BlueStacks 5 engine supporting 240Hz frame rate unlocked rendering and high performance mode.
+                    </p>
+                </div>
+                <a href="https://www.bluestacks.com/bluestacks-5.html" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 neon-button font-orbitron font-black text-xs uppercase text-black text-center rounded-xl flex items-center justify-center space-x-2 tracking-wider">
+                    <i class="fa-solid fa-external-link"></i>
+                    <span>DOWNLOAD EMULATOR</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= PAID OPTIMIZATION PLANS (COMING SOON) ================= -->
+    <section id="plans" class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-gray-900 relative z-10">
+        <div class="text-center mb-14">
+            <div class="inline-block px-4 py-1 bg-brand-blue/10 border border-brand-blue/30 rounded-full text-brand-blue text-xs font-black uppercase tracking-widest font-orbitron mb-3">
+                PREMIUM ECOSYSTEM
+            </div>
+            <h2 class="font-orbitron text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">
+                VIP OPTIMIZATION <span class="text-brand-blue text-glow-blue">PACKS</span>
+            </h2>
+            <p class="text-muted-visible text-sm sm:text-base mt-2 max-w-xl mx-auto font-medium">Custom 1-on-1 PC configuration &amp; BlueStacks master setup</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto glass-card neon-border p-10 sm:p-14 rounded-3xl text-center relative overflow-hidden">
+            
+            <div class="absolute -top-12 -right-12 w-40 h-40 bg-brand-blue/10 rounded-full blur-2xl"></div>
+
+            <div class="inline-block bg-brand-blue text-black font-orbitron font-black text-xs px-5 py-1.5 rounded-full uppercase tracking-widest shadow-[0_0_15px_rgba(0,240,255,0.8)] mb-6">
+                COMING SOON
+            </div>
+
+            <div class="w-20 h-20 mx-auto rounded-2xl bg-brand-blue/20 border border-brand-blue/60 flex items-center justify-center text-brand-blue text-3xl mb-6 shadow-[0_0_20px_rgba(0,240,255,0.3)]">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+
+            <h3 class="font-orbitron text-2xl sm:text-4xl font-black text-white mb-4 uppercase tracking-tight">VIP SUITE IN DEVELOPMENT</h3>
+            <p class="text-muted-visible text-sm sm:text-base leading-relaxed mb-8 max-w-xl mx-auto font-medium">
+                We are building an all-in-one software tool featuring custom registry injectors, 1-click RAM cleaner, and dedicated sensitivity configuration tools built exclusively for PC gamers.
+            </p>
+
+            <a href="https://wa.me/" target="_blank" class="inline-flex items-center space-x-3 text-brand-blue text-xs sm:text-sm font-black font-orbitron uppercase tracking-widest hover:underline">
+                <span>Join VIP WhatsApp Notification List</span>
+                <i class="fa-solid fa-arrow-right text-base"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ================= FLOATING ACTION BUTTON (CHAT) ================= -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" 
+           class="neon-button w-14 h-14 rounded-full flex items-center justify-center text-black text-2xl shadow-2xl transition-transform hover:scale-110 active:scale-95"
+           title="Contact Support on WhatsApp">
+            <i class="fa-solid fa-comment-dots"></i>
+        </a>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="w-full border-t border-gray-950 bg-black/95 py-8 mt-16 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs font-semibold text-gray-500 font-orbitron">
+            <p>&copy; 2026 STRICK X144Hz. All Rights Reserved. Engineered for Competitive PC Gamers.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript for Mobile Menu Drawer -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+                document.querySelectorAll('#mobile-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
